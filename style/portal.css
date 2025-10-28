@@ -1,0 +1,56 @@
+#fork .f-portal > div {
+  border: 0.0625rem dotted;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 63.9999rem) {
+  #fork .f-portal {
+    display: block;
+  }
+
+  #fork .f-portal > div + div {
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (min-width: 64rem) {
+  #fork .f-portal {
+    display: flex;
+    flex-flow: wrap;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  #fork #fork-portal-start {
+    flex-basis: 15em;
+    flex-shrink: 0;
+    flex-grow: 1;
+    order: -1;
+  }
+
+  #fork #fork-portal-center {
+    flex-basis: calc(100% - 32rem);
+    min-width: 28rem;
+    flex-grow: 1000;
+  }
+
+  #fork #fork-portal-end {
+    flex-basis: 15em;
+    flex-shrink: 0;
+    flex-grow: 1;
+  }
+}
+
+#fork-nav-portal .f-menu-a::before {
+  content: "\f6d9";
+}
+
+#fork .f-cr-portal-a::before {
+  display: inline-block;
+  font: 900 0.875rem "fa";
+  content: "\f6d9\a0";
+}
+
+#fork .f-cr-portal-a > span {
+  display: none;
+}

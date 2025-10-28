@@ -1,0 +1,68 @@
+{
+    "name": "miovisman/portal-extension",
+    "type": "forkbb-extension",
+    "description": "Portal for forkbb.",
+    "homepage": "https://forkbb.ru/",
+    "version": "0.1.6",
+    "time": "2025-10-27",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Visman",
+            "email": "mio.visman@yandex.ru",
+            "homepage": "https://github.com/MioVisman"
+        }
+    ],
+    "require": {
+        "php": ">=8.0.0",
+        "forkbb/forkbb": ">=0.0090"
+    },
+    "extra": {
+        "display-name": "Portal extension",
+        "requirements": {
+            "php": ">=8.0.0",
+            "forkbb": ">=90"
+        },
+        "symlinks": [
+            {
+                "type": "public",
+                "target": "style",
+                "link": "style/portal-extension"
+            }
+        ],
+        "autoload": [
+            {
+                "prefix": "MioVisman\\PortalExtension\\",
+                "path": "src/"
+            }
+        ],
+        "actions": "MioVisman\\PortalExtension\\Actions\\Actions",
+        "config": {
+            "multiple": {
+                "Portal": "\\MioVisman\\PortalExtension\\Models\\Pages\\Portal::class"
+            }
+        },
+        "events" : [
+            {
+                "name": "Controllers\\Routing:routing:beforeRoute",
+                "priority": 10,
+                "listener": "MioVisman\\PortalExtension\\Listeners\\Listener1"
+            },
+            {
+                "name": "Models\\Page:boardNavigation:after",
+                "priority": 10,
+                "listener": "MioVisman\\PortalExtension\\Listeners\\Listener1"
+            },
+            {
+                "name": "Models\\Page:prepare:after",
+                "priority": 10,
+                "listener": "MioVisman\\PortalExtension\\Listeners\\Listener1"
+            },
+            {
+                "name": "Models\\Page:crumbs:after",
+                "priority": 10,
+                "listener": "MioVisman\\PortalExtension\\Listeners\\Listener1"
+            }
+        ]
+    }
+}
