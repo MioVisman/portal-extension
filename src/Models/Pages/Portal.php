@@ -44,8 +44,6 @@ class Portal extends Page
 
     protected function addTplDir(): void
     {
-        $tplDir = \realpath(__DIR__ . '/../../../templates');
-
-        $this->c->View->addTplDir($tplDir, 9);
+        $this->c->View->addTplDir($this->c->DIR_PORTAL_EXT . '/templates', 9);
     }
 }

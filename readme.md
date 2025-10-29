@@ -1,4 +1,4 @@
-# Portal for forkbb
+# Portal for ForkBB
 
 ## Install
 

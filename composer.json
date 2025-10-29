@@ -3,8 +3,8 @@
     "type": "forkbb-extension",
     "description": "Portal for forkbb.",
     "homepage": "https://forkbb.ru/",
-    "version": "0.1.6",
-    "time": "2025-10-27",
+    "version": "0.2.1",
+    "time": "2025-10-29",
     "license": "MIT",
     "authors": [
         {
@@ -36,32 +36,43 @@
                 "path": "src/"
             }
         ],
-        "actions": "MioVisman\\PortalExtension\\Actions\\Actions",
+        "actions": "\\MioVisman\\PortalExtension\\Actions\\Actions",
         "config": {
+            "shared": {
+                "portalPanels": "\\MioVisman\\PortalExtension\\Models\\PortalPanel\\Panels::class",
+                "PPanels/save": "\\MioVisman\\PortalExtension\\Models\\PortalPanel\\Save::class"
+            },
             "multiple": {
-                "Portal": "\\MioVisman\\PortalExtension\\Models\\Pages\\Portal::class"
+                "Portal": "\\MioVisman\\PortalExtension\\Models\\Pages\\Portal::class",
+                "AdminPortal": "\\MioVisman\\PortalExtension\\Models\\Pages\\Admin\\Portal::class",
+                "PortalPanelModel": "\\MioVisman\\PortalExtension\\Models\\PortalPanel\\Panel::class"
             }
         },
         "events" : [
             {
                 "name": "Controllers\\Routing:routing:beforeRoute",
                 "priority": 10,
-                "listener": "MioVisman\\PortalExtension\\Listeners\\Listener1"
+                "listener": "\\MioVisman\\PortalExtension\\Listeners\\Listener1"
             },
             {
                 "name": "Models\\Page:boardNavigation:after",
                 "priority": 10,
-                "listener": "MioVisman\\PortalExtension\\Listeners\\Listener1"
+                "listener": "\\MioVisman\\PortalExtension\\Listeners\\Listener1"
             },
             {
                 "name": "Models\\Page:prepare:after",
                 "priority": 10,
-                "listener": "MioVisman\\PortalExtension\\Listeners\\Listener1"
+                "listener": "\\MioVisman\\PortalExtension\\Listeners\\Listener1"
             },
             {
                 "name": "Models\\Page:crumbs:after",
                 "priority": 10,
-                "listener": "MioVisman\\PortalExtension\\Listeners\\Listener1"
+                "listener": "\\MioVisman\\PortalExtension\\Listeners\\Listener1"
+            },
+            {
+                "name": "Pages\\Admin:aNavigation:after",
+                "priority": 10,
+                "listener": "\\MioVisman\\PortalExtension\\Listeners\\Listener2"
             }
         ]
     }

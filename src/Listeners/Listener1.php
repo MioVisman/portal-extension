@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace MioVisman\PortalExtension\Listeners;
 
-use ForkBB\Core\Container;
 use ForkBB\Core\Event;
 use ForkBB\Core\EventListener;
 
@@ -24,12 +23,15 @@ class Listener1 extends EventListener
     ];
 
     /**
+     * Добавление данных в Container
      * Изменяет ссылки на главную страницу форума
      * Добавляет ссылки на страницы портала
      */
     protected function beforeRoute(Event $event): bool
     {
         if (1 === $this->c->user->g_read_board) {
+            $this->c->DIR_PORTAL_EXT = \realpath(__DIR__ . '/../..');
+
             // изменить старые ссылки
             $event->router->add(
                 $event->router::GET,
@@ -54,6 +56,34 @@ class Listener1 extends EventListener
                 'Portal:view',
                 'Portal'
             );
+
+            if ($this->c->user->isAdmin) {
+                $event->router->add(
+                    $event->router::DUO,
+                    '/admin/portal',
+                    'AdminPortal:view',
+                    'AdminPortal'
+                );
+                $event->router->add(
+                    $event->router::DUO,
+                    '/admin/portal/new_panel',
+                    'AdminPortal:editPanel',
+                    'AdminPortalPanelNew'
+                );
+                $event->router->add(
+                    $event->router::DUO,
+                    '/admin/portal/edit_panel/{id|i:[1-9]\d*}',
+                    'AdminPortal:editPanel',
+                    'AdminPortalPanelEdit'
+                );
+                $event->router->add(
+                    $event->router::DUO,
+                    '/admin/portal/delete_panel/{id|i:[1-9]\d*}',
+                    'AdminPortal:deletePanel',
+                    'AdminPortalPanelDelete'
+                );
+
+            }
         }
 
         return true;
@@ -82,6 +112,8 @@ class Listener1 extends EventListener
      */
     protected function prepareAfter(Event $event): bool
     {
+        $this->c->Lang->load('portal', '', $this->c->DIR_PORTAL_EXT . '/lang');
+
         $event->page->pageHeader('portalStyle', 'link', 9000, [
             'rel'  => 'stylesheet',
             'type' => 'text/css',
@@ -92,6 +124,9 @@ class Listener1 extends EventListener
         return true;
     }
 
+    /**
+     * Добавляет в начало хлебных крошек пункт указывающий на портал
+     */
     protected function crumbsAfter(Event $event): bool
     {
         $event->list[] = [$this->c->Router->link('Portal'), 'Portal', null, 'portal', $event->active, $event->ext];
