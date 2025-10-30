@@ -18,10 +18,10 @@ msgstr "Новая панель"
 msgid "Update positions"
 msgstr "Изменить позиции"
 
-msgid "Center Up"
+msgid "Center Top"
 msgstr "Центральная (верх)"
 
-msgid "Center Down"
+msgid "Center Bottom"
 msgstr "Центральная (низ)"
 
 msgid "Starting side"
@@ -52,7 +52,7 @@ msgid "Panel content label"
 msgstr "Содержание (HTML)"
 
 msgid "Panel content help"
-msgstr "Взаимодействует с выбранным шаблоном. "
+msgstr "Взаимодействует с выбранным шаблоном."
 
 msgid "Panel added redirect"
 msgstr "Панель добавлена."
@@ -75,14 +75,14 @@ msgstr "Да, я хочу удалить панель <b>%s</b>"
 msgid "Panels updated redirect"
 msgstr "Панели обновлены."
 
-msgid ""
-msgstr ""
+msgid "Empty template"
+msgstr "[ отсутствует ]"
 
-msgid ""
-msgstr ""
+msgid "Search template"
+msgstr "Форма поиска"
 
-msgid ""
-msgstr ""
+msgid "No template - content is required"
+msgstr "Если шаблон не выбран, то содержание обязательно к заполнению."
 
 msgid ""
 msgstr ""

@@ -39,6 +39,16 @@ class Portal extends Page
         $this->onlineDetail = true;
         $this->onlineFilter = false;
 
+        $lctns = [];
+
+        foreach ($this->c->portalPanels->displayPanels() as $panel) {
+            $panel->createHTML();
+
+            $lctns[$panel->location][] = $panel;
+        }
+
+        $this->locations = $lctns;
+
         return $this;
     }
 

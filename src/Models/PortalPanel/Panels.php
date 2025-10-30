@@ -136,4 +136,30 @@ class Panels extends Manager
 
         return $this;
     }
+
+    public function displayPanels(): array
+    {
+        $panels = [];
+        $data   = $this->c->Cache->get(self::CACHE_KEY);
+
+        if (! \is_array($data)) {
+            $query = 'SELECT pn.*
+                FROM ::portal_panels AS pn
+                WHERE pn.enabled=1
+                ORDER BY pn.location, pn.position, pn.id';
+
+            $data = $this->c->DB->query($query)->fetchAll();
+
+            if (true !== $this->c->Cache->set(self::CACHE_KEY, $data)) {
+                throw new RuntimeException('Unable to write value to cache - ' . self::CACHE_KEY);
+            }
+        }
+
+        foreach ($data as $cur) {
+            $panel              = $this->create($cur);
+            $panels[$panel->id] = $panel;
+        }
+
+        return $panels;
+    }
 }

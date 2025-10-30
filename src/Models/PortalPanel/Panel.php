@@ -38,4 +38,19 @@ class Panel extends DataModel
             ]
         );
     }
+
+    public function createHTML(): void
+    {
+        $class      = '\\MioVisman\\PortalExtension\\Panels\\Panel' . \ucfirst($this->template);
+        $model      = new $class($this->c);
+        $this->html = \trim($model->html($this), "\n\r");
+    }
+
+    protected function gettemplates(): array
+    {
+        return [
+            'empty'  => 'Empty template',
+            'search' => 'Search template',
+        ];
+    }
 }

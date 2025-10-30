@@ -1,7 +1,28 @@
-#fork .f-portal > div {
-  border: 0.0625rem dotted;
-  padding: 1rem;
+#fork #fork-portal-center,
+#fork #fork-portal-start,
+#fork #fork-portal-end {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
+
+#fork .f-panel-header {
+  display: block;
+  padding: 0 0.625rem;
+  font-size: 1.125rem;
+}
+
+#fork .f-panel-content {
+  background-color: var(--bg-like-nav);
+  border: 0.0625rem solid var(--br-fprimary);
+  padding: 0.625rem;
+}
+
+#forka .f-fs-disabled {
+  opacity: 0.4;
+}
+
+
 
 @media screen and (max-width: 63.9999rem) {
   #fork .f-portal {

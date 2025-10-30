@@ -17,7 +17,7 @@ use RuntimeException;
 class Save extends Action
 {
     /**
-     * Обновляет раздел в БД
+     * Обновляет панель в БД
      */
     public function update(Panel $panel): Panel
     {
@@ -59,7 +59,7 @@ class Save extends Action
     }
 
     /**
-     * Добавляет новый раздел в БД
+     * Добавляет новую панель в БД
      */
     public function insert(Panel $panel): int
     {

@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace MioVisman\PortalExtension\Models\Pages\Admin;
 
+use ForkBB\Core\Validator;
 use ForkBB\Models\Page;
 use ForkBB\Models\Pages\Admin;
 use MioVisman\PortalExtension\Models\PortalPanel\Panel;
@@ -92,8 +93,8 @@ class Portal extends Admin
         ];
 
         $sides = [
-            0 => 'Center Up',
-            1 => 'Center Down',
+            0 => 'Center Top',
+            1 => 'Center Bottom',
             2 => 'Starting side',
             3 => 'Ending side',
         ];
@@ -137,13 +138,28 @@ class Portal extends Admin
                 'href'     => $panel->linkDelete,
             ];
             $form['sets']["panel{$panel->id}"] = [
-                'class'  => ['forum', 'inline'],
+                'class'  => $panel->enabled ? ['forum', 'inline'] : ['forum', 'inline', 'disabled'],
                 'legend' => __($sides[$side]) . ' / ' . $panel->name,
                 'fields' => $fields,
             ];
         }
 
         return $form;
+    }
+
+    /**
+     * Дополнительная проверка content
+     */
+    public function vCheckContent(Validator $v, string $content): string
+    {
+        if (
+            'empty' === $v->template
+            && '' === $content
+        ) {
+            $v->addError('No template - content is required');
+        }
+
+        return $content;
     }
 
     /**
@@ -176,14 +192,21 @@ class Portal extends Admin
 
         if ('POST' === $method) {
             $v = $this->c->Validator->reset()
-                ->addRules([
+                ->addValidators([
+                    'check_content' => [$this, 'vCheckContent'],
+                ])->addRules([
                     'token'    => 'token:' . $marker,
                     'name'     => 'required|string:trim|max:255',
                     'enabled'  => 'required|integer|in:0,1',
                     'location' => 'required|integer|in:0,1,2,3',
-                    'template' => 'required|string|in:empty',
-                    'content'  => 'string:trim|max:' . $this->c->MAX_POST_SIZE,
+                    'template' => 'required|string|in:' . \implode(',', \array_keys($panel->templates)),
+                    'content'  => 'string:trim|max:' . $this->c->MAX_POST_SIZE . '|html|check_content',
                 ])->addAliases([
+                    'name'     => 'Panel name label',
+                    'enabled'  => 'Panel enabled label',
+                    'location' => 'Panel location label',
+                    'template' => 'Panel template label',
+                    'content'  => 'Panel content label',
                 ])->addArguments([
                     'token' => $args,
                 ]);
@@ -258,8 +281,8 @@ class Portal extends Admin
                 'location' => [
                     'type'    => 'select',
                     'options' => [
-                        0 => __('Center Up'),
-                        1 => __('Center Down'),
+                        0 => __('Center Top'),
+                        1 => __('Center Bottom'),
                         2 => __('Starting side'),
                         3 => __('Ending side'),
                     ],
@@ -268,9 +291,7 @@ class Portal extends Admin
                 ],
                 'template' => [
                     'type'    => 'select',
-                    'options' => [
-                        'empty' => __('Empty tpl'),
-                    ],
+                    'options' => \array_map('\\ForkBB\\__', $panel->templates),
                     'value'   => $panel->template,
                     'caption' => 'Panel template label',
                 ],

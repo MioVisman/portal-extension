@@ -12,5 +12,74 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en\n"
 
-msgid ""
-msgstr ""
+msgid "New panel"
+msgstr "New panel"
+
+msgid "Update positions"
+msgstr "Update positions"
+
+msgid "Center Top"
+msgstr "Center (top)"
+
+msgid "Center Bottom"
+msgstr "Center (bottom)"
+
+msgid "Starting side"
+msgstr "Starting side"
+
+msgid "Ending side"
+msgstr "Ending side"
+
+msgid "Add panel head"
+msgstr "Add panel"
+
+msgid "Edit panel head"
+msgstr "Edit panel"
+
+msgid "Panel name label"
+msgstr "Panel name"
+
+msgid "Panel enabled label"
+msgstr "Display?"
+
+msgid "Panel location label"
+msgstr "Column (location)"
+
+msgid "Panel template label"
+msgstr "Template"
+
+msgid "Panel content label"
+msgstr "Content (HTML)"
+
+msgid "Panel content help"
+msgstr "Interacts with the selected template."
+
+msgid "Panel added redirect"
+msgstr "Panel added."
+
+msgid "Panel updated redirect"
+msgstr "Panel updated."
+
+msgid "Panel deleted redirect"
+msgstr "Панель удалена."
+
+msgid "Delete panel head"
+msgstr "Panel deleted"
+
+msgid "Confirm delete"
+msgstr "Delete panel?"
+
+msgid "I want to delete panel %s"
+msgstr "Yes, I want to delete the <b>%s</b> panel"
+
+msgid "Panels updated redirect"
+msgstr "Panels updated."
+
+msgid "Empty template"
+msgstr "[ empty ]"
+
+msgid "Search template"
+msgstr "Search form"
+
+msgid "No template - content is required"
+msgstr "If template is not selected, content is required."
