@@ -14,3 +14,18 @@ msgstr ""
 
 msgid "Portal"
 msgstr "Portal"
+
+msgid "Author"
+msgstr "Author"
+
+msgid "Published"
+msgstr "Date of publication"
+
+msgid "Views"
+msgstr "Number of views"
+
+msgid "Comments"
+msgstr "Number of comments"
+
+msgid "Read more"
+msgstr "Read more"

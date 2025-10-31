@@ -45,31 +45,26 @@ class Actions extends AbstractActions
         ];
         $this->c->DB->createTable('::portal_pages', $schema);
 
-        \error_log('install');
         return true;
     }
 
     public function uninstall(): bool
     {
-        \error_log('uninstall');
         return true;
     }
 
     public function updown(): bool
     {
-        \error_log('updown');
         return true;
     }
 
     public function enable(): bool
     {
-        \error_log('enable');
         return true;
     }
 
     public function disable(): bool
     {
-        \error_log('disable');
         return true;
     }
 }

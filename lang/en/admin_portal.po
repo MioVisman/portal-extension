@@ -83,3 +83,6 @@ msgstr "Search form"
 
 msgid "No template - content is required"
 msgstr "If template is not selected, content is required."
+
+msgid "Last topics template"
+msgstr "Last topics"

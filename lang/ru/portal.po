@@ -15,8 +15,20 @@ msgstr ""
 msgid "Portal"
 msgstr "Портал"
 
-msgid ""
-msgstr ""
+msgid "Author"
+msgstr "Автор"
+
+msgid "Published"
+msgstr "Дата публикации"
+
+msgid "Views"
+msgstr "Число просмотров"
+
+msgid "Comments"
+msgstr "Число комментариев"
+
+msgid "Read more"
+msgstr "Читать дальше"
 
 msgid ""
 msgstr ""

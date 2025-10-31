@@ -49,8 +49,9 @@ class Panel extends DataModel
     protected function gettemplates(): array
     {
         return [
-            'empty'  => 'Empty template',
-            'search' => 'Search template',
+            'empty'      => 'Empty template',
+            'search'     => 'Search template',
+            'lastTopics' => 'Last topics template',
         ];
     }
 }

@@ -152,11 +152,22 @@ class Portal extends Admin
      */
     public function vCheckContent(Validator $v, string $content): string
     {
-        if (
-            'empty' === $v->template
-            && '' === $content
-        ) {
-            $v->addError('No template - content is required');
+        if ('empty' === $v->template) {
+            if ('' === $content) {
+                $v->addError('No template - content is required');
+            } else {
+                $errors = [];
+                $result = $this->c->HTMLCleaner->setConfig()->parse($content, $errors);
+
+                if (empty($errors)) {
+                    return $result;
+
+                } else {
+                    foreach ($errors as $args) {
+                        $v->addError($args);
+                    }
+                }
+            }
         }
 
         return $content;
@@ -200,7 +211,7 @@ class Portal extends Admin
                     'enabled'  => 'required|integer|in:0,1',
                     'location' => 'required|integer|in:0,1,2,3',
                     'template' => 'required|string|in:' . \implode(',', \array_keys($panel->templates)),
-                    'content'  => 'string:trim|max:' . $this->c->MAX_POST_SIZE . '|html|check_content',
+                    'content'  => 'string:trim|max:' . $this->c->MAX_POST_SIZE . '|check_content',
                 ])->addAliases([
                     'name'     => 'Panel name label',
                     'enabled'  => 'Panel enabled label',

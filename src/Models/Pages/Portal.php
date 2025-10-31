@@ -31,6 +31,7 @@ class Portal extends Page
     public function view(): Page
     {
         $this->addTplDir();
+        $this->c->Lang->load('portal', '', $this->c->DIR_PORTAL_EXT . '/lang');
 
         $this->fIndex       = 'portal';
         $this->identifier   = 'portal';

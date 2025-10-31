@@ -1,15 +1,22 @@
 #fork #fork-portal-center,
 #fork #fork-portal-start,
-#fork #fork-portal-end {
+#fork #fork-portal-end,
+#fork .f-panel-last-topics .f-panel-body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-#fork .f-panel-header {
+#fork .f-panel-header,
+#fork .f-panel-topic-header {
   display: block;
   padding: 0 0.625rem;
   font-size: 1.125rem;
+  font-weight: bold;
+}
+
+#fork .f-panel-last-topics .f-panel-header {
+  display: none;
 }
 
 #fork .f-panel-content {
@@ -22,7 +29,67 @@
   opacity: 0.4;
 }
 
+#fork .f-panel .f-post-body {
+  width: 100%;
+  background-color: var(--bg-like-nav);
+  border: 0.0625rem solid var(--br-fprimary);
+  border-bottom: 0;
+}
 
+#fork .f-panel .f-post-body::before,
+#fork .f-panel .f-post-body::after {
+  content: none;
+}
+
+#fork .f-panel-topic-footer {
+  padding: 0.3125rem 0.625rem;
+  background-color: var(--bg-like-nav);
+  border: 0.0625rem solid var(--br-fprimary);
+  border-top-style: dotted;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+
+#fork .f-panel-topict-cmm-count {
+  margin-inline-start: auto;
+}
+
+#fork .f-panel-topic-author::before {
+  font-family: "fa";
+  font-weight: 400;
+  font-size: 0.875rem;
+  content: "\f007";
+  margin-inline-end: 0.3125rem;
+}
+
+#fork .f-panel-topict-posted::before {
+  font-family: "fa";
+  font-weight: 400;
+  font-size: 0.875rem;
+  content: "\f017";
+  margin-inline-end: 0.3125rem;
+}
+
+#fork .f-panel-topict-view-count::before {
+  font-family: "fa";
+  font-weight: 400;
+  font-size: 0.875rem;
+  content: "\f06e";
+  margin-inline-end: 0.3125rem;
+}
+
+#fork .f-panel-topict-cmm-count::before {
+  font-family: "fa";
+  font-weight: 400;
+  font-size: 0.875rem;
+  content: "\f086";
+  margin-inline-end: 0.3125rem;
+}
+
+#fork .f-panel-topic-rm {
+  text-align: center;
+}
 
 @media screen and (max-width: 63.9999rem) {
   #fork .f-portal {

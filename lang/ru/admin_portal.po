@@ -84,20 +84,8 @@ msgstr "Форма поиска"
 msgid "No template - content is required"
 msgstr "Если шаблон не выбран, то содержание обязательно к заполнению."
 
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
+msgid "Last topics template"
+msgstr "Последние темы"
 
 msgid ""
 msgstr ""
