@@ -39,6 +39,7 @@ class Portal extends Page
         $this->onlinePos    = 'portal';
         $this->onlineDetail = true;
         $this->onlineFilter = false;
+        $this->canonical    = $this->c->Router->link('Portal');
 
         $lctns = [];
 
