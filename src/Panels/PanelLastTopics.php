@@ -110,7 +110,14 @@ class PanelLastTopics
 
         foreach ($posts as $post) {
             if (\mb_strlen($post->message, 'UTF-8') > $this->preview) {
-                $post->__message      = \mb_substr($post->message, 0, $this->preview, 'UTF-8') . '...';
+                \preg_match('%^.{0,' . $this->preview . '}(?=\s)%usD', $post->message, $matches);
+
+                if ('' === $matches[0]) {
+                    $post->__message = \mb_substr($post->message, 0, $this->preview, 'UTF-8') . ' ...';
+                } else {
+                    $post->__message = $matches[0] . ' ...';
+                }
+
                 $post->__needReadMore = true;
             }
 
