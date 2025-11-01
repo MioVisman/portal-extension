@@ -16,9 +16,10 @@
 }
 
 #fork .f-panel-last-topics .f-panel-header {
-  display: none;
+  margin-bottom: 1rem;
 }
 
+#fork .f-panel-last-topics .f-panel-header,
 #fork .f-panel-content {
   background-color: var(--bg-like-nav);
   border: 0.0625rem solid var(--br-fprimary);

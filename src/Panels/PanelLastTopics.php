@@ -100,7 +100,7 @@ class PanelLastTopics
             ];
             $query = 'SELECT t.first_post_id
                 FROM ::topics AS t
-                WHERE t.forum_id IN (?ai:forums)
+                WHERE t.forum_id IN (?ai:forums) AND t.moved_to=0
                 ORDER BY t.posted DESC
                 LIMIT ?i:limit';
 
