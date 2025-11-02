@@ -87,8 +87,8 @@ msgstr "Если шаблон не выбран, то содержание об�
 msgid "Last topics template"
 msgstr "Последние темы"
 
-msgid ""
-msgstr ""
+msgid "Recent posts template"
+msgstr "Последние сообщения"
 
 msgid ""
 msgstr ""

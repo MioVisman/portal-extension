@@ -30,11 +30,11 @@ msgstr "Число комментариев"
 msgid "Read more"
 msgstr "Читать дальше"
 
-msgid ""
-msgstr ""
+msgid "Last post info"
+msgstr "Перейти к последнему сообщению в теме"
 
-msgid ""
-msgstr ""
+msgid "Recent posts"
+msgstr "Последние сообщения"
 
 msgid ""
 msgstr ""

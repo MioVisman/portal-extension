@@ -29,3 +29,9 @@ msgstr "Number of comments"
 
 msgid "Read more"
 msgstr "Read more"
+
+msgid "Last post info"
+msgstr "Go to the last post in this topic"
+
+msgid "Recent posts"
+msgstr "Recent posts"

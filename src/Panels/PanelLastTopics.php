@@ -128,7 +128,7 @@ class PanelLastTopics
             $this->c->users->loadByIds($userIds);
         }
 
-        $this->c->Lang->load('topic');
+        //$this->c->Lang->load('topic');
 
         return $this->c->View->fetch(
             'portal/panels/last_topics',

@@ -92,6 +92,12 @@
   text-align: center;
 }
 
+#fork .f-panel-recent-posts-li {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 @media screen and (max-width: 63.9999rem) {
   #fork .f-portal {
     display: block;
