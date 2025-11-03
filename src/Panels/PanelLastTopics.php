@@ -134,8 +134,9 @@ class PanelLastTopics
             'portal/panels/last_topics',
             [
                 'panel'     => $panel,
-                'posts'     => $posts,
+                'user'      => $this->c->user,
                 'userRules' => $this->c->userRules,
+                'posts'     => $posts,
             ]
         );
     }

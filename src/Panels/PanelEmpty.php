@@ -21,6 +21,13 @@ class PanelEmpty
 
     public function html(Panel $panel): string
     {
-        return $this->c->View->fetch("portal/panels/empty", ['panel' => $panel]);
+        return $this->c->View->fetch(
+            'portal/panels/empty',
+            [
+                'panel'     => $panel,
+                'user'      => $this->c->user,
+                'userRules' => $this->c->userRules,
+            ]
+        );
     }
 }

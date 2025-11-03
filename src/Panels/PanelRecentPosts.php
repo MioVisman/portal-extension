@@ -84,9 +84,10 @@ class PanelRecentPosts
         return $this->c->View->fetch(
             'portal/panels/recent_posts',
             [
-                'panel'  => $panel,
-                'topics' => $topics,
-                'user'   => $this->c->user,
+                'panel'     => $panel,
+                'user'      => $this->c->user,
+                'userRules' => $this->c->userRules,
+                'topics'    => $topics,
             ]
         );
     }

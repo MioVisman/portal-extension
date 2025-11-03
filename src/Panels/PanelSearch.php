@@ -23,6 +23,14 @@ class PanelSearch
     {
         $this->c->Lang->load('search');
 
-        return $this->c->View->fetch("portal/panels/search", ['action' => $this->c->Router->link('Search')]);
+        return $this->c->View->fetch(
+            'portal/panels/search',
+            [
+                'panel'     => $panel,
+                'user'      => $this->c->user,
+                'userRules' => $this->c->userRules,
+                'action'    => $this->c->Router->link('Search'),
+            ]
+        );
     }
 }
