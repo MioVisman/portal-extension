@@ -90,8 +90,8 @@ msgstr "Последние темы"
 msgid "Recent posts template"
 msgstr "Последние сообщения"
 
-msgid ""
-msgstr ""
+msgid "Board info template"
+msgstr "Информация о форуме"
 
 msgid ""
 msgstr ""

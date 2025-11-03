@@ -43,7 +43,7 @@ class Portal extends Page
 
         $lctns = [];
 
-        foreach ($this->c->portalPanels->displayPanels() as $panel) {
+        foreach ($this->c->portalPanels->displayPanels($this) as $panel) {
             $panel->createHTML();
 
             $lctns[$panel->location][] = $panel;

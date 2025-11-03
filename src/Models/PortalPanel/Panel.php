@@ -53,6 +53,7 @@ class Panel extends DataModel
             'search'      => 'Search template',
             'lastTopics'  => 'Last topics template',
             'recentPosts' => 'Recent posts template',
+            'info'        => 'Board info template',
         ];
     }
 }

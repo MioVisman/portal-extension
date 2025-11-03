@@ -35,3 +35,18 @@ msgstr "Go to the last post in this topic"
 
 msgid "Recent posts"
 msgstr "Recent posts"
+
+msgid "Info header"
+msgstr "Board information"
+
+msgid "Online users"
+msgstr "Online:"
+
+msgid "Total data"
+msgstr "Total"
+
+msgid "Max data"
+msgstr "Maximum"
+
+msgid "Current data"
+msgstr "Current"

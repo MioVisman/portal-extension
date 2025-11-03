@@ -89,3 +89,6 @@ msgstr "Last topics"
 
 msgid "Recent posts template"
 msgstr "Recent posts"
+
+msgid "Board info template"
+msgstr "Board info"

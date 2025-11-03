@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace MioVisman\PortalExtension\Models\PortalPanel;
 
 use ForkBB\Models\Manager;
+use ForkBB\Models\Page;
 use MioVisman\PortalExtension\Models\PortalPanel\Panel;
 use RuntimeException;
 
@@ -137,7 +138,7 @@ class Panels extends Manager
         return $this;
     }
 
-    public function displayPanels(): array
+    public function displayPanels(Page $page): array
     {
         $panels = [];
         $data   = $this->c->Cache->get(self::CACHE_KEY);
@@ -156,6 +157,7 @@ class Panels extends Manager
         }
 
         foreach ($data as $cur) {
+            $cur['page']        = $page;
             $panel              = $this->create($cur);
             $panels[$panel->id] = $panel;
         }

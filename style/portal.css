@@ -20,7 +20,8 @@
 }
 
 #fork .f-panel-last-topics .f-panel-header,
-#fork .f-panel-content {
+#fork .f-panel-content,
+#fork .f-panel-body-info {
   background-color: var(--bg-like-nav);
   border: 0.0625rem solid var(--br-fprimary);
   padding: 0.625rem;
@@ -64,7 +65,8 @@
   margin-inline-end: 0.3125rem;
 }
 
-#fork .f-panel-topict-posted::before {
+#fork .f-panel-topict-posted::before,
+#fork .f-panel-info-max-date::before {
   font-family: "fa";
   font-weight: 400;
   font-size: 0.875rem;
@@ -97,6 +99,81 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+#fork .f-panel-body-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+
+#fork .f-panel-info-total-dl,
+#fork .f-panel-info-max-dl,
+#fork .f-panel-info-cur-dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3125rem;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 13rem;
+  justify-content: space-around;
+}
+
+#fork .f-panel-info-total-dt,
+#fork .f-panel-info-max-dt,
+#fork .f-panel-info-cur-dt,
+#fork .f-panel-info-online-dt {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+}
+
+#fork .f-panel-info-online {
+  width: 100%;
+}
+
+#fork .f-panel-info-total-topic::before {
+  font-family: "fa";
+  font-weight: 400;
+  font-size: 0.875rem;
+  content: "\f0c5";
+  margin-inline-end: 0.3125rem;
+}
+
+#fork .f-panel-info-total-post::before {
+  font-family: "fa";
+  font-weight: 400;
+  font-size: 0.875rem;
+  content: "\f086";
+  margin-inline-end: 0.3125rem;
+}
+
+
+#fork .f-panel-info-total-user::before,
+#fork .f-panel-info-max-user::before {
+  font-family: "fa";
+  font-weight: 900;
+  font-size: 0.875rem;
+  content: "\f0c0";
+  margin-inline-end: 0.3125rem;
+}
+
+#fork .f-panel-info-cur-user::before {
+  font-family: "fa";
+  font-weight: 400;
+  font-size: 0.875rem;
+  content: "\f2bd";
+  margin-inline-end: 0.3125rem;
+}
+
+#fork .f-panel-info-cur-guest::before {
+  font-family: "fa";
+  font-weight: 400;
+  font-size: 0.875rem;
+  content: "\f059";
+  margin-inline-end: 0.3125rem;
+}
+
 
 @media screen and (max-width: 63.9999rem) {
   #fork .f-portal {

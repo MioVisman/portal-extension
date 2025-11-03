@@ -36,14 +36,20 @@ msgstr "Перейти к последнему сообщению в теме"
 msgid "Recent posts"
 msgstr "Последние сообщения"
 
-msgid ""
-msgstr ""
+msgid "Info header"
+msgstr "Информация о форуме"
 
-msgid ""
-msgstr ""
+msgid "Online users"
+msgstr "Активны:"
 
-msgid ""
-msgstr ""
+msgid "Total data"
+msgstr "Всего"
+
+msgid "Max data"
+msgstr "Максимум"
+
+msgid "Current data"
+msgstr "Текущие"
 
 msgid ""
 msgstr ""
