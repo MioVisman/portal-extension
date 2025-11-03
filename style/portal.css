@@ -1,3 +1,20 @@
+#fork .f-panel-info-cur-guest::before,
+#fork .f-panel-info-cur-user::before,
+#fork .f-panel-info-total-user::before,
+#fork .f-panel-info-max-user::before,
+#fork .f-panel-info-total-post::before,
+#fork .f-panel-info-total-topic::before,
+#fork .f-panel-topict-cmm-count::before,
+#fork .f-panel-topict-view-count::before,
+#fork .f-panel-topict-posted::before,
+#fork .f-panel-info-max-date::before,
+#fork .f-panel-topic-author::before {
+  font-family: "fa";
+  font-weight: 400;
+  font-size: 0.875rem;
+  margin-inline-end: 0.3125rem;
+}
+
 #fork #fork-portal-center,
 #fork #fork-portal-start,
 #fork #fork-portal-end,
@@ -58,36 +75,20 @@
 }
 
 #fork .f-panel-topic-author::before {
-  font-family: "fa";
-  font-weight: 400;
-  font-size: 0.875rem;
   content: "\f007";
-  margin-inline-end: 0.3125rem;
 }
 
 #fork .f-panel-topict-posted::before,
 #fork .f-panel-info-max-date::before {
-  font-family: "fa";
-  font-weight: 400;
-  font-size: 0.875rem;
   content: "\f017";
-  margin-inline-end: 0.3125rem;
 }
 
 #fork .f-panel-topict-view-count::before {
-  font-family: "fa";
-  font-weight: 400;
-  font-size: 0.875rem;
   content: "\f06e";
-  margin-inline-end: 0.3125rem;
 }
 
 #fork .f-panel-topict-cmm-count::before {
-  font-family: "fa";
-  font-weight: 400;
-  font-size: 0.875rem;
   content: "\f086";
-  margin-inline-end: 0.3125rem;
 }
 
 #fork .f-panel-topic-rm {
@@ -133,45 +134,26 @@
 }
 
 #fork .f-panel-info-total-topic::before {
-  font-family: "fa";
-  font-weight: 400;
-  font-size: 0.875rem;
   content: "\f0c5";
-  margin-inline-end: 0.3125rem;
 }
 
 #fork .f-panel-info-total-post::before {
-  font-family: "fa";
-  font-weight: 400;
-  font-size: 0.875rem;
   content: "\f086";
-  margin-inline-end: 0.3125rem;
 }
 
 
 #fork .f-panel-info-total-user::before,
 #fork .f-panel-info-max-user::before {
-  font-family: "fa";
   font-weight: 900;
-  font-size: 0.875rem;
   content: "\f0c0";
-  margin-inline-end: 0.3125rem;
 }
 
 #fork .f-panel-info-cur-user::before {
-  font-family: "fa";
-  font-weight: 400;
-  font-size: 0.875rem;
   content: "\f2bd";
-  margin-inline-end: 0.3125rem;
 }
 
 #fork .f-panel-info-cur-guest::before {
-  font-family: "fa";
-  font-weight: 400;
-  font-size: 0.875rem;
   content: "\f059";
-  margin-inline-end: 0.3125rem;
 }
 
 
