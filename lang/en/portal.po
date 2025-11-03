@@ -39,9 +39,6 @@ msgstr "Recent posts"
 msgid "Info header"
 msgstr "Board information"
 
-msgid "Online users"
-msgstr "Online:"
-
 msgid "Total data"
 msgstr "Total"
 

@@ -19,15 +19,17 @@
               <dd class="f-panel-info-total-topic" title="{{ \strip_tags(__(['No of topics: %s', num($stats->topicTotal)])) }}">{{ num($stats->topicTotal) }}</dd>
               <dd class="f-panel-info-total-post" title="{{ \strip_tags(__(['No of posts: %s', num($stats->postTotal)])) }}">{{ num($stats->postTotal) }}</dd>
             </dl>
+@if ($online->info)
             <dl class="f-panel-info-online f-inline"><!-- inline -->
               <dt class="f-panel-info-online-dt">{!! __('Online users') !!}</dt>
-@foreach ($online->info as $cur)
-    @if ($cur['link'])
+    @foreach ($online->info as $cur)
+        @if ($cur['link'])
               <dd><a href="{{ $cur['link'] }}">{{ $cur['name'] }}</a></dd>
-    @else
+        @else
               <dd>{{ $cur['name'] }}</dd>
-    @endif
-@endforeach
+        @endif
+    @endforeach
             </dl><!-- endinline -->
+@endif
           </div>
         </section>

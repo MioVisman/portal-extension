@@ -39,9 +39,6 @@ msgstr "Последние сообщения"
 msgid "Info header"
 msgstr "Информация о форуме"
 
-msgid "Online users"
-msgstr "Активны:"
-
 msgid "Total data"
 msgstr "Всего"
 
