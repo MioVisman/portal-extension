@@ -46,7 +46,7 @@ msgid "Max data"
 msgstr "Максимум"
 
 msgid "Current data"
-msgstr "Текущие"
+msgstr "Сейчас"
 
 msgid ""
 msgstr ""
