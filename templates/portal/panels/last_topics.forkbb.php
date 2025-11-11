@@ -11,7 +11,7 @@
                 <div class="f-post-main">
                   {!! $post->html() !!}
         @if (true === $post->needReadMore)
-                  <p class="f-panel-topic-rm"><a href="{{ $post->parent->link }}">{!! __('Read more')!!}</a></p>
+                  <p class="f-panel-topic-rm"><a href="{{ $post->parent->link }}#p{!! (int) $post->id !!}">{!! __('Read more')!!}</a></p>
         @endif
                 </div>
               </div>
@@ -25,7 +25,7 @@
                 </address>
                 <span class="f-panel-topict-posted" title="{{ __('Published') }}"><time datetime="{{ \gmdate('c', $post->posted) }}">{{ dt($post->posted) }}</time></span>
                 <span class="f-panel-topict-view-count" title="{{ __('Views') }}">{{ num($post->parent->num_views) }}</span>
-                <span class="f-panel-topict-cmm-count" title="{{ __('Comments') }}"><a href="{{ $post->parent->link }}">{{ num($post->parent->num_replies) }}</a></span>
+                <span class="f-panel-topict-cmm-count" title="{{ __('Comments') }}"><a href="{{ $post->parent->link }}#p{!! (int) $post->id !!}">{{ num($post->parent->num_replies) }}</a></span>
               </footer>
             </article>
     @endif
