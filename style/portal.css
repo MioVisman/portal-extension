@@ -129,6 +129,14 @@
   font-style: italic;
 }
 
+#fork .f-panel-info-online > dd {
+  display: inline;
+}
+
+#fork .f-panel-info-online > dd + dd::before {
+  content: ", ";
+}
+
 #fork .f-panel-info-online {
   width: 100%;
 }
