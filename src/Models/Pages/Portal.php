@@ -33,13 +33,14 @@ class Portal extends Page
         $this->addTplDir();
         $this->c->Lang->load('portal', '', $this->c->DIR_PORTAL_EXT . '/lang');
 
-        $this->fIndex       = 'portal';
-        $this->identifier   = 'portal';
-        $this->nameTpl      = 'portal/index';
-        $this->onlinePos    = 'portal';
-        $this->onlineDetail = true;
-        $this->onlineFilter = false;
-        $this->canonical    = $this->c->Router->link('Portal');
+        $this->fIndex         = 'portal';
+        $this->identifier     = 'portal';
+        $this->nameTpl        = 'portal/index';
+        $this->onlinePos      = 'portal';
+        $this->onlineDetail   = true;
+        $this->onlineFilter   = false;
+        $this->canonical      = $this->c->Router->link('Portal');
+        $this->removeFWithNav = true;
 
         $lctns = [];
 

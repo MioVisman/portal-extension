@@ -3,8 +3,8 @@
     "type": "forkbb-extension",
     "description": "Portal for forkbb.",
     "homepage": "https://forkbb.ru/",
-    "version": "0.6.6",
-    "time": "2025-11-20",
+    "version": "0.7.1",
+    "time": "2025-11-23",
     "license": "MIT",
     "authors": [
         {
@@ -28,6 +28,22 @@
                 "type": "public",
                 "target": "style",
                 "link": "style/portal-extension"
+            }
+        ],
+        "templates": [
+            {
+                "type": "pre",
+                "template": "layouts/main",
+                "name": "bodyStart",
+                "priority": -2147483648,
+                "file": "templates/_pre/mainBodyStart.forkbb.php"
+            },
+            {
+                "type": "pre",
+                "template": "layouts/main",
+                "name": "headerBefore",
+                "priority": 2147483647,
+                "file": "templates/_pre/mainHeaderBefore.forkbb.php"
             }
         ],
         "autoload": [
