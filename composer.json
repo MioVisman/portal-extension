@@ -3,8 +3,8 @@
     "type": "forkbb-extension",
     "description": "Portal for forkbb.",
     "homepage": "https://forkbb.ru/",
-    "version": "0.7.1",
-    "time": "2025-11-23",
+    "version": "0.7.2",
+    "time": "2025-11-26",
     "license": "MIT",
     "authors": [
         {
@@ -65,6 +65,11 @@
             }
         },
         "events" : [
+            {
+                "name": "bootstrap:start",
+                "priority": 10,
+                "listener": "\\MioVisman\\PortalExtension\\Listeners\\Listener1"
+            },
             {
                 "name": "Controllers\\Routing:routing:beforeRoute",
                 "priority": 10,

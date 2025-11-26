@@ -16,6 +16,7 @@ use ForkBB\Core\EventListener;
 class Listener1 extends EventListener
 {
     protected array $eventList = [
+        'bootstrap:start'                         => 'start',
         'Controllers\Routing:routing:beforeRoute' => 'beforeRoute',
         'Models\Page:boardNavigation:after'       => 'boardNavigationAfter',
         'Models\Page:prepare:after'               => 'prepareAfter',
@@ -24,14 +25,26 @@ class Listener1 extends EventListener
 
     /**
      * Добавление данных в Container
+     */
+    protected function start(Event $event): bool
+    {
+        $this->c->DIR_PORTAL_EXT = \realpath(__DIR__ . '/../..');
+
+        return true;
+    }
+
+    /**
+     * Добавление данных в Container при необходимости
      * Изменяет ссылки на главную страницу форума
      * Добавляет ссылки на страницы портала
      */
     protected function beforeRoute(Event $event): bool
     {
-        if (1 === $this->c->user->g_read_board) {
+        if (false === $this->c->isInit('DIR_PORTAL_EXT')) {
             $this->c->DIR_PORTAL_EXT = \realpath(__DIR__ . '/../..');
+        }
 
+        if (1 === $this->c->user->g_read_board) {
             // изменить старые ссылки
             $event->router->add(
                 $event->router::GET,
