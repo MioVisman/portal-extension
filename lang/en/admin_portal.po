@@ -92,3 +92,27 @@ msgstr "Recent posts"
 
 msgid "Board info template"
 msgstr "Board info"
+
+msgid "Settings head"
+msgstr "Settings"
+
+msgid "Settings subhead"
+msgstr "Settings"
+
+msgid "Main menu label"
+msgstr "Main menu position"
+
+msgid "Main menu help"
+msgstr "This switch indicates on which pages of the site to change the position of the main menu from the side column to horizontal at the top of the page. For the default forum, the main menu appears as a sidebar only on wide screens."
+
+msgid "Change on portal page only"
+msgstr "Change on portal page only"
+
+msgid "Do not change on any page"
+msgstr "Do not change on any page"
+
+msgid "Change on all pages"
+msgstr "Change on all pages"
+
+msgid "Settings updated redirect"
+msgstr "Settings saved."

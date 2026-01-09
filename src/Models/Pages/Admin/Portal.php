@@ -32,40 +32,101 @@ class Portal extends Admin
         $this->loadLang();
 
         if ('POST' === $method) {
-            $v = $this->c->Validator->reset()
-                ->addRules([
-                    'token'           => 'token:AdminPortal',
-                    'form'            => 'required|array',
-                    'form.*.position' => 'required|integer|min:0|max:9999999999',
-                ])->addAliases([
-                ])->addArguments([
-                ])->addMessages([
-                ]);
+            $v = $this->c->Validator->reset()->addRules(['save' => 'required|string']);
 
             if ($v->validation($_POST)) {
-                $panels = $this->c->portalPanels->loadAll();
+                $v = $this->c->Validator->reset()
+                    ->addRules([
+                        'token'           => 'token:AdminPortal',
+                        'i_portal_mmpos'  => 'required|integer|in:0,1,2',
+                    ])->addAliases([
+                    ])->addArguments([
+                    ])->addMessages([
+                    ]);
 
-                foreach ($v->form as $key => $row) {
-                    $panels[$key]->position = $row['position'];
+                if ($v->validation($_POST)) {
+                    $this->c->config->i_portal_mmpos = $v->i_portal_mmpos;
 
-                    $this->c->portalPanels->save($panels[$key]);
+                    $this->c->config->save();
+
+                    return $this->c->Redirect->page('AdminPortal')->message('Settings updated redirect', FORK_MESS_SUCC);
                 }
 
-                $this->c->portalPanels->reset();
+            } else {
+                $v = $this->c->Validator->reset()
+                    ->addRules([
+                        'token'           => 'token:AdminPortal',
+                        'form'            => 'required|array',
+                        'form.*.position' => 'required|integer|min:0|max:9999999999',
+                    ])->addAliases([
+                    ])->addArguments([
+                    ])->addMessages([
+                    ]);
 
-                return $this->c->Redirect->page('AdminPortal')->message('Panels updated redirect', FORK_MESS_SUCC);
+                if ($v->validation($_POST)) {
+                    $panels = $this->c->portalPanels->loadAll();
+
+                    foreach ($v->form as $key => $row) {
+                        $panels[$key]->position = $row['position'];
+
+                        $this->c->portalPanels->save($panels[$key]);
+                    }
+
+                    $this->c->portalPanels->reset();
+
+                    return $this->c->Redirect->page('AdminPortal')->message('Panels updated redirect', FORK_MESS_SUCC);
+                }
             }
 
             $this->fIswev  = $v->getErrors();
         }
 
-        $this->nameTpl   = 'admin/form';
-        $this->aIndex    = 'portal';
-        $this->form      = $this->formView();
-        $this->classForm = ['editforums', 'inline'];
-        $this->titleForm = 'Portal';
+        $this->c->View->addTplDir($this->c->DIR_PORTAL_EXT . '/templates', 9);
+
+        $this->nameTpl      = 'portal/admin/portal';
+        $this->aIndex       = 'portal';
+        $this->form         = $this->formView();
+        $this->classForm    = ['editforums', 'inline'];
+        $this->titleForm    = 'Portal';
+        $this->formSettings = $this->formSettings();
 
         return $this;
+    }
+
+    protected function formSettings(): array
+    {
+        return [
+            'action' => $this->c->Router->link('AdminPortal'),
+            'hidden' => [
+                'token'    => $this->c->Csrf->create('AdminPortal'),
+            ],
+            'sets'   => [
+                'settings' => [
+                    'legend' => 'Settings subhead',
+                    'fields' => [
+                        'i_portal_mmpos' => [
+                            'class'   => ['block'],
+                            'type'    => 'radio',
+                            'value'   => $this->c->config->i_portal_mmpos,
+                            'values'  => [
+                                0 => __('Change on portal page only'),
+                                1 => __('Do not change on any page'),
+                                2 => __('Change on all pages'),
+                            ],
+                            'caption' => 'Main menu label',
+                            'help'    => 'Main menu help',
+                        ],
+                    ],
+                ],
+            ],
+            'btns'   => [
+                'save' => [
+                    'type'  => 'submit',
+                    'value' => __('Save changes'),
+                ],
+            ],
+        ];
+
     }
 
     /**

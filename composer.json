@@ -3,8 +3,8 @@
     "type": "forkbb-extension",
     "description": "Portal for forkbb.",
     "homepage": "https://forkbb.ru/",
-    "version": "0.7.2",
-    "time": "2025-11-26",
+    "version": "0.8.0",
+    "time": "2026-01-09",
     "license": "MIT",
     "authors": [
         {

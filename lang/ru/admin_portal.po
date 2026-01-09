@@ -93,11 +93,29 @@ msgstr "Последние сообщения"
 msgid "Board info template"
 msgstr "Информация о форуме"
 
-msgid ""
-msgstr ""
+msgid "Settings head"
+msgstr "Настройки"
 
-msgid ""
-msgstr ""
+msgid "Settings subhead"
+msgstr "Настройки"
+
+msgid "Main menu label"
+msgstr "Позиция главного меню"
+
+msgid "Main menu help"
+msgstr "Этот переключатель указывает, на каких страницах сайта изменить положение главного меню с бокового столбца на горизонтальное в верхней части страницы. Для форума по умолчанию главное меню появляется в виде боковой панели только на широких экранах."
+
+msgid "Change on portal page only"
+msgstr "Менять только на странице портала"
+
+msgid "Do not change on any page"
+msgstr "Не менять ни на одной странице"
+
+msgid "Change on all pages"
+msgstr "Менять на всех страницах"
+
+msgid "Settings updated redirect"
+msgstr "Настройки сохранены."
 
 msgid ""
 msgstr ""

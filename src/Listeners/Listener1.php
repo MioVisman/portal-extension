@@ -134,6 +134,10 @@ class Listener1 extends EventListener
                 ?: $event->page->publicLink('/style/portal-extension/portal.css'),
         ]);
 
+        if (! empty($this->c->config->i_portal_mmpos)) {
+            $event->page->removeFWithNav = 1 === $this->c->config->i_portal_mmpos ? false : true;
+        }
+
         return true;
     }
 
