@@ -131,7 +131,7 @@ class Listener1 extends EventListener
             'rel'  => 'stylesheet',
             'type' => 'text/css',
             'href' => $event->page->publicLink("/style/{$this->c->user->style}/portal.css", true)
-                ?: $event->page->publicLink('/style/portal-extension/portal.css'),
+                ?: $event->page->publicLink('/style/other/portal-extension/portal.css'),
         ]);
 
         if (! empty($this->c->config->i_portal_mmpos)) {

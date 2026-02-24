@@ -3,8 +3,8 @@
     "type": "forkbb-extension",
     "description": "Portal for forkbb.",
     "homepage": "https://forkbb.ru/",
-    "version": "0.8.0",
-    "time": "2026-01-09",
+    "version": "0.8.1",
+    "time": "2026-02-24",
     "license": "MIT",
     "authors": [
         {
@@ -15,19 +15,19 @@
     ],
     "require": {
         "php": ">=8.0.0",
-        "forkbb/forkbb": ">=0.0090"
+        "forkbb/forkbb": ">=0.0092"
     },
     "extra": {
         "display-name": "Portal extension",
         "requirements": {
             "php": ">=8.0.0",
-            "forkbb": ">=90"
+            "forkbb": ">=92"
         },
         "symlinks": [
             {
                 "type": "public",
                 "target": "style",
-                "link": "style/portal-extension"
+                "link": "style/other/portal-extension"
             }
         ],
         "templates": [
