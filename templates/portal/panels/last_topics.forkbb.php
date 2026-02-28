@@ -5,7 +5,7 @@
     @if (! empty($post))
             <article class="f-panel-topic">
               <h3 class="f-panel-topic-header">
-                <span><a href="{{ $post->parent->link }}">{{ $post->parent->name }}</a></span>
+                <span><a @if ($post->parent->colorNum > 0) class="f-color{!! (int) $post->parent->colorNum !!}"@endif href="{{ $post->parent->link }}">{{ $post->parent->name }}</a></span>
               </h3>
               <div class="f-panel-topic-body f-post-body">
                 <div class="f-post-main">
