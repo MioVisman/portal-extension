@@ -57,11 +57,12 @@ class PanelRecentPosts
         return $root instanceof Forum ? $root->descendants : [];
     }
 
-    public function html(Panel $panel): string
+    protected array $idsList = [];
+
+    public function prepare(Panel $panel): array
     {
         $this->initSettings($panel->content);
 
-        $topics    = [];
         $forumsIds = \array_keys($this->getForums());
 
         if (! empty($forumsIds)) {
@@ -75,10 +76,14 @@ class PanelRecentPosts
                 ORDER BY t.last_post DESC
                 LIMIT ?i:limit';
 
-            $idsList = $this->c->DB->query($query, $vars)->fetchAll(PDO::FETCH_COLUMN);
-            $topics  = $this->c->topics->loadByIds($idsList);
+            $this->idsList = $this->c->DB->query($query, $vars)->fetchAll(PDO::FETCH_COLUMN);
         }
 
+        return ['topics' => $this->idsList];
+    }
+
+    public function html(Panel $panel): string
+    {
         //$this->c->Lang->load('topic');
 
         return $this->c->View->fetch(
@@ -87,7 +92,7 @@ class PanelRecentPosts
                 'panel'     => $panel,
                 'user'      => $this->c->user,
                 'userRules' => $this->c->userRules,
-                'topics'    => $topics,
+                'topics'    => empty($this->idsList) ? [] : $this->c->topics->loadByIds($this->idsList),
             ]
         );
     }

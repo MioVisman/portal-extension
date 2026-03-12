@@ -76,12 +76,12 @@ class PanelLastTopics
         return $root instanceof Forum ? $root->descendants : [];
     }
 
-    public function html(Panel $panel): string
+    protected array $idsList = [];
+
+    public function prepare(Panel $panel): array
     {
         $this->initSettings($panel->content);
 
-        $posts     = [];
-        $userIds   = [];
         $forumsIds = \array_keys($this->getForums());
 
         if (
@@ -104,9 +104,16 @@ class PanelLastTopics
                 ORDER BY t.posted DESC
                 LIMIT ?i:limit';
 
-            $idsList = $this->c->DB->query($query, $vars)->fetchAll(PDO::FETCH_COLUMN);
-            $posts   = $this->c->posts->loadByIds($idsList);
+            $this->idsList = $this->c->DB->query($query, $vars)->fetchAll(PDO::FETCH_COLUMN);
         }
+
+        return ['posts' => $this->idsList];
+    }
+
+    public function html(Panel $panel): string
+    {
+
+        $posts = empty($this->idsList) ? [] : $this->c->posts->loadByIds($this->idsList);
 
         foreach ($posts as $post) {
             if (\mb_strlen($post->message, 'UTF-8') > $this->preview) {
@@ -120,12 +127,6 @@ class PanelLastTopics
 
                 $post->__needReadMore = true;
             }
-
-            $userIds[$post->poster_id] = $post->poster_id;
-        }
-
-        if (! empty($userIds)) {
-            $this->c->users->loadByIds($userIds);
         }
 
         //$this->c->Lang->load('topic');

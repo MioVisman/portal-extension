@@ -19,6 +19,11 @@ class PanelSearch
     {
     }
 
+    public function prepare(Panel $panel): array
+    {
+        return [];
+    }
+
     public function html(Panel $panel): string
     {
         $this->c->Lang->load('search');

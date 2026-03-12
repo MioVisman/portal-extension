@@ -214,6 +214,14 @@ class Portal extends Admin
     public function vCheckContent(Validator $v, string $content): string
     {
         if ('empty' === $v->template) {
+            if (\preg_match('%^<!--\s+topic:([1-9]\d*)\s+-->%s', $content, $matches)) {
+                $tid     = (int) $matches[1];
+                $set     = "{$matches[0]}\n";
+                $content = \trim(\substr($content, \strlen($set)));
+            } else {
+                $set     = '';
+            }
+
             if ('' === $content) {
                 $v->addError('No template - content is required');
             } else {
@@ -221,7 +229,7 @@ class Portal extends Admin
                 $result = $this->c->HTMLCleaner->setConfig()->parse($content, $errors);
 
                 if (empty($errors)) {
-                    return $result;
+                    return $set . $result;
 
                 } else {
                     foreach ($errors as $args) {
@@ -229,6 +237,8 @@ class Portal extends Admin
                     }
                 }
             }
+
+            $content = $set . $content;
         }
 
         return $content;

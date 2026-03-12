@@ -11,6 +11,8 @@ declare(strict_types=1);
 namespace MioVisman\PortalExtension\Models\Pages;
 
 use ForkBB\Models\Page;
+use ForkBB\Models\Post\Post;
+use ForkBB\Models\Topic\Topic;
 use function \ForkBB\__;
 
 class Portal extends Page
@@ -42,9 +44,53 @@ class Portal extends Page
         $this->canonical      = $this->c->Router->link('Portal');
         $this->removeFWithNav = true;
 
-        $lctns = [];
+        $panels = $this->c->portalPanels->displayPanels($this);
+        $lctns  = [];
+        $pids   = [];
+        $tids   = [];
+        $uids   = [];
 
-        foreach ($this->c->portalPanels->displayPanels($this) as $panel) {
+        foreach ($panels as $panel) {
+            $ids = $panel->prepareForHTML();
+
+            if (! empty($ids['posts'])) {
+                foreach ($ids['posts'] as $i) {
+                    $pids[$i] = true;
+                }
+            }
+
+            if (! empty($ids['topics'])) {
+                foreach ($ids['topics'] as $i) {
+                    $tids[$i] = true;
+                }
+            }
+        }
+
+        if (! empty($pids)) {
+            $posts = $this->c->posts->loadByIds(\array_keys($pids));
+
+            foreach ($posts as $post) {
+                if ($post instanceof Post) {
+                    $uids[$post->poster_id] = true;
+                }
+            }
+        }
+
+        if (! empty($tids)) {
+            $topics = $this->c->topics->loadByIds(\array_keys($tids));
+
+            foreach ($topics as $topic) {
+                if ($topic instanceof Topic) {
+                    $uids[$topic->poster_id] = true;
+                }
+            }
+        }
+
+        if (! empty($uids)) {
+            $this->c->users->loadByIds(\array_keys($uids));
+        }
+
+        foreach ($panels as $panel) {
             $panel->createHTML();
 
             $lctns[$panel->location][] = $panel;

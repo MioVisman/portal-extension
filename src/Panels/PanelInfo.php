@@ -20,6 +20,11 @@ class PanelInfo
     {
     }
 
+    public function prepare(Panel $panel): array
+    {
+        return [];
+    }
+
     public function html(Panel $panel): string
     {
         $this->c->Lang->load('index');

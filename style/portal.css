@@ -44,6 +44,10 @@
   padding: 0.625rem;
 }
 
+#fork .f-panel-to-topic .f-panel-content {
+  border-bottom: 0;
+}
+
 #forka .f-fs-disabled {
   opacity: 0.4;
 }

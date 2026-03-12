@@ -39,11 +39,19 @@ class Panel extends DataModel
         );
     }
 
+    protected $model;
+
+    public function prepareForHTML(): array
+    {
+        $class       = '\\MioVisman\\PortalExtension\\Panels\\Panel' . \ucfirst($this->template);
+        $this->model = new $class($this->c);
+
+        return $this->model->prepare($this);
+    }
+
     public function createHTML(): void
     {
-        $class      = '\\MioVisman\\PortalExtension\\Panels\\Panel' . \ucfirst($this->template);
-        $model      = new $class($this->c);
-        $this->html = \trim($model->html($this), "\n\r");
+        $this->html = \trim($this->model->html($this), "\n\r");
     }
 
     protected function gettemplates(): array
