@@ -24,7 +24,9 @@
         @endif
                 </address>
                 <span class="f-panel-topict-posted" title="{{ __('Published') }}"><time datetime="{{ \gmdate('c', $post->posted) }}">{{ dt($post->posted, null, 0, true) }}</time></span>
+        @if ($post->parent->showViews)
                 <span class="f-panel-topict-view-count" title="{{ __('Views') }}">{{ num($post->parent->num_views) }}</span>
+        @endif
                 <span class="f-panel-topict-cmm-count" title="{{ __('Comments') }}"><a href="{{ $post->parent->link }}#p{!! (int) $post->id !!}">{{ num($post->parent->num_replies) }}</a></span>
               </footer>
             </article>
