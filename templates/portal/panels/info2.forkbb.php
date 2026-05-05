@@ -13,10 +13,12 @@
 @else
             <dd class="f-stats-dd">{!! __(['Newest user: %s', $stats->userLast['name']]) !!}</dd>
 @endif
+@if ($online)
             <dd class="f-stats-dd">{!! __(['Visitors online', num($online->numUsers), num($online->numGuests)]) !!}</dd>
             <dd class="f-stats-dd">{!! __(['Most online', num($online->maxNum), dt($online->maxTime)]) !!}</dd>
+@endif
           </dl>
-@if ($online->info)
+@if ($online && $online->info)
           <dl id="fork-onlinelist" class="f-inline"><!-- inline -->
             <dt id="id-onlst-dt">{!! __('Online users') !!}</dt>
     @foreach ($online->info as $cur)
