@@ -93,6 +93,9 @@ msgstr "Последние сообщения"
 msgid "Board info template"
 msgstr "Информация о форуме"
 
+msgid "Board info template2"
+msgstr "Информация о форуме (для центральной)"
+
 msgid "Settings head"
 msgstr "Настройки"
 

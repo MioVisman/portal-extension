@@ -93,6 +93,9 @@ msgstr "Recent posts"
 msgid "Board info template"
 msgstr "Board info"
 
+msgid "Board info template2"
+msgstr "Board info (for center)"
+
 msgid "Settings head"
 msgstr "Settings"
 
