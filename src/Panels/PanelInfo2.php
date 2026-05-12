@@ -29,23 +29,6 @@ class PanelInfo2
     {
         $this->c->Lang->load('index');
 
-        if (! empty($this->c->stats->userLast['username'])) {
-            // крайний пользователь // ???? может в stats переместить?
-            // копия из Page/Index
-            $this->c->stats->userLast = [
-                'name' => $this->c->stats->userLast['username'],
-                'link' => $this->c->userRules->viewUsers
-                    ? $this->c->Router->link(
-                        'User',
-                        [
-                            'id'   => $this->c->stats->userLast['id'],
-                            'name' => $this->c->Func->friendly($this->c->stats->userLast['username']),
-                        ]
-                    )
-                    : null,
-            ];
-        }
-
         return $this->c->View->fetch(
             'portal/panels/info2',
             [
