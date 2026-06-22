@@ -2,7 +2,7 @@
     "name": "miovisman/portal-extension",
     "type": "forkbb-extension",
     "description": "Portal for forkbb.",
-    "homepage": "https://forkbb.ru/",
+    "homepage": "https://forkbb.org/",
     "version": "0.11.3",
     "time": "2026-05-12",
     "license": "MIT",

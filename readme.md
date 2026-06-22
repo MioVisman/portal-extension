@@ -9,7 +9,7 @@
 
 ## Links
 
-* Homepage: https://forkbb.ru/
+* Homepage: https://forkbb.org/
 * GitHub: https://github.com/MioVisman
 
 ## License
